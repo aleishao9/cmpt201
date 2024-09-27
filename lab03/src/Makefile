@@ -24,4 +24,4 @@ install:
 	mv learn ../bin/ && mv asciiCode
 
 #Package:
-	#tar -czvf tarAndcompress.tar.gz lab02
+	#tar -czvf tarAndcompress.tar.gz lab03
