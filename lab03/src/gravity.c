@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include "planet.h"
 #include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
-#define G 65.73*pow(10,-12)
+#define G (65.73*pow(10,-12))
 
 int main(int argc, char* argv[])
 {
-	long double h, g, mP, rP;
+	long double gravity, mP, rP;
+	float height;
 
 	if (0==strcmp(argv[1],"earth"))
 	{
@@ -51,10 +54,11 @@ int main(int argc, char* argv[])
                 rP= RAD_SATURN;
         }
 
-	h = atof(argv[2]);
-	g = G * mP / ((h + rP) * (h + rP));
+	height = atof(argv[2]);
+	gravity = G * mP / ((height + rP) * (height + rP));
 
-	printf("%s-body @ %lf [m] is %Lf [m/s2]", argv[1], atof(argv[2]), g);
+	printf("%s-body @ %s [m] is %2Lf [m/s2]\n", argv[1], argv[2], gravity);
+	printf("height entered: %s\n",argv[2]);
 
 	return 0;
 
