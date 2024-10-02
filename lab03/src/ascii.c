@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	char character
+	char character;
 
 	printf("Please enter a single character : ");
 	scanf("%c",&character);

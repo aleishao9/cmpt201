@@ -4,6 +4,8 @@
 
 int main(void)
 {
+	int variable;
+
 	printf("DataType | Bytes | Min Value | Max Value |");
 	printf("short int | %i | %i | %i |", sizeof(variable), INT_MIN, INT_MAX);
 	printf("int | %i | %i | %i |", sizeof(variable), INT_MIN, INT_MAX);

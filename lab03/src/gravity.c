@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[])
 {
-	long double h, g;
+	long double h, g, mP, rP;
 
 	if (0==strcmp(argv[1],"earth"))
 	{
@@ -24,36 +24,37 @@ int main(int argc, char* argv[])
                 mP= MASS_VENUS;
                 rP= RAD_VENUS;
 	}
+
 	if (0==strcmp(argv[1],"mercury"))
         {
                 mP= MASS_MERCURY;
                 rP= RAD_MERCURY;
-        }
-	if (strcmp(neptune))
+	}
+	if (0==strcmp(argv[1],"neptune"))
         {
-                mP= mass_Neptune;
-                rP= rad_Neptune;
+                mP= MASS_NEPTUNE;
+                rP= RAD_NEPTUNE;
         }
-	if (strcmp(uranus))
+	if (0==strcmp(argv[1],"uranus"))
         {
-                mP= mass_Uranus;
-                rP= rad_Uranus;
+                mP= MASS_URANUS;
+                rP= RAD_URANUS;
         }
-	if (strcmp(jupiter))
+	if (0==strcmp(argv[1],"jupiter"))
         {
-                mP= mass_Jupiter;
-                rP= rad_Jupiter;
+                mP= MASS_JUPITER;
+                rP= RAD_JUPITER;
         }
-	if (strcmp(saturn))
+	if (0==strcmp(argv[1],"saturn"))
         {
-                mP= mass_Saturn;
-                rP= rad_Saturn;
+                mP= MASS_SATURN;
+                rP= RAD_SATURN;
         }
 
 	h = atof(argv[2]);
 	g = G * mP / ((h + rP) * (h + rP));
 
-	printf("%d-body @ %Lf [m] is %f [m/s2]", argv[1], argv[2], g);
+	printf("%d-body @ %lf [m] is %lf [m/s2]", argv[1], argv[2], g);
 
 	return 0;
 
