@@ -2,7 +2,7 @@
 #include "planet.h"
 #include <string.h>
 
-#define G 65.73*(10^-12)
+#define G 65.73*pow(10,-12)
 
 int main(int argc, char* argv[])
 {
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	h = atof(argv[2]);
 	g = G * mP / ((h + rP) * (h + rP));
 
-	printf("%d-body @ %lf [m] is %lf [m/s2]", argv[1], argv[2], g);
+	printf("%s-body @ %lf [m] is %Lf [m/s2]", argv[1], atof(argv[2]), g);
 
 	return 0;
 

@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include "planet.h"
 
 int main(void)
 {
 	FILE* fh;
 	fh = fopen("planet.h","w");
-	fpointf(fh, "earth, %E, %E \n", mass_Earth, rad_Earth);
+	fprintf(fh, "Mercury, %E, %E \n", MASS_MERCURY, RAD_MERCURY);
 	fclose(fh);
 
 	return 0;
