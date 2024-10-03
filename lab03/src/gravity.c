@@ -58,7 +58,6 @@ int main(int argc, char* argv[])
 	gravity = G * mP / ((height + rP) * (height + rP));
 
 	printf("%s-body @ %s [m] is %2Lf [m/s2]\n", argv[1], argv[2], gravity);
-	printf("height entered: %s\n",argv[2]);
 
 	return 0;
 

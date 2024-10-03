@@ -4,17 +4,21 @@
 
 int main(void)
 {
-	int variable;
+	FILE *fh;
+	fh = fopen("Cdatatypes.txt","w");
 
-	printf("DataType | Bytes | Min Value | Max Value |");
-	printf("short int | %i | %i | %i |", sizeof(variable), SHRT_MIN, SHRT_MAX);
-	printf("int | %i | %i | %i |", sizeof(variable), INT_MIN, INT_MAX);
-	printf("long int | %li | %li | %li |", sizeof(variable), LONG_MIN, LONG_MAX);
-	printf("char | %i | %i | %i |", sizeof(variable), CHAR_MIN, CHAR_MAX);
-	printf("float | %i | %f | %f |", sizeof(variable), FLT_MIN, FLT_MAX);
-	printf("double | %i | %lf | %lf |", sizeof(variable), DBL_MIN, DBL_MAX);
-	printf("long double | %i | %Lf | %Lf |", sizeof(variable), LDBL_MIN, LDBL_MAX);
 
+	fprintf("DataType    | Bytes | Min Value | Max Value  |\n");
+	fprintf("short int   | %li     | %.2e | %.2e   |\n", sizeof(short), (double)SHRT_MIN, (double)SHRT_MAX);
+	fprintf("int         | %li     | %.2e | %.2e   |\n", sizeof(int), (double)INT_MIN, (double)INT_MAX);
+	fprintf("long int    | %li     | %.2e | %.2e   |\n", sizeof(long), (double)LONG_MIN, (double)LONG_MAX);
+	fprintf("char        | %li     | %i      | %i        |\n", sizeof(char), CHAR_MIN, CHAR_MAX);
+	fprintf("float       | %li     | %.2e  | %.2e   |\n", sizeof(float), FLT_MIN, FLT_MAX);
+	fprintf("double      | %li     | %.2e | %.2e  |\n", sizeof(double), DBL_MIN, DBL_MAX);
+	fprintf("long double | %li    | %.2Le| %.2Le |\n", sizeof(long double), LDBL_MIN, LDBL_MAX);
+
+	fclose(fh);
+	
 	return 0;
 
 }
