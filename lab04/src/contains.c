@@ -51,6 +51,7 @@ int main(void)
 		printf("Contains letter(s), number(s), special character(s), and control character(s).\n");
 	}
 
+	/*character string condition variations*/
 	if(alpha_count==0&&spcl_count==0&&num_count==0&&ctrl_count>=1)
 	{
 		printf("Contains all control characters\n");
@@ -96,12 +97,15 @@ int main(void)
 		printf("Contains number(s) and control character(s)\n");
 	}
 	
-	if(alpha_count==0&&spcl_count==0&&num_count==0&&ctrl_count>=1)
+	if(alpha_count>=1&&spcl_count==0&&num_count>=1&&ctrl_count==0)
 	{
-		printf("Contains control character(s)\n");
+		printf("Contains letter(s) and number(s)\n");
 	}
-	
-	
+
+	if(alpha_count==0&&spcl_count>=1&&num_count>=1&&ctrl_count==0)
+	{
+		printf("Contains number(s) and special character(s)\n");
+	}
 	
 	}
 	return 0;

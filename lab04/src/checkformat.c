@@ -5,7 +5,7 @@
 int main(int argc, char* argv[])
 {
     FILE* fh;
-    int n,num;
+    int n,num,v1,v2;
 
     char* strp=NULL;
     char filename[20];
@@ -38,9 +38,12 @@ int main(int argc, char* argv[])
     printf("%i", num);
     for(int i=0;i<=n;i++)
     {
-
+        num=fscanf(fh,"%i,%i",&v1,&v2);
+    }
+    if(num!=2)
+    {
+        printf("File format is invalid");
+        exit(EXIT_FAILURE);
     }
     return 0;
-
-
 }

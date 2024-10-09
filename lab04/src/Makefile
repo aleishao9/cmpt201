@@ -5,9 +5,9 @@ CFLAGS:=-Wall
 
 contains: contains.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
-checkfor: checkformat.o
+checkformat: checkformat.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
-checkFile: checkFilename.o
+checkFilename: checkFilename.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
 %.o: %.c
@@ -16,10 +16,10 @@ checkFile: checkFilename.o
 PHONY: clean install Package
 
 clean:
-	rm -f *.o contains checkfor checkFile
+	rm -f *.o contains checkformat checkFilename
 
 install:
-	mv contains ../bin/ && mv checkfor ../bin/ && mv checkFile ../bin/
+	mv contains ../bin/ && mv checkformat ../bin/ && mv checkFilename ../bin/
 
 Package:
 	tar -czvf cmpt201_lab04_AOB.tar.gz lab04
