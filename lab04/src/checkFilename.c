@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(int argc, char* argv[])
 {
@@ -8,6 +9,7 @@ int main(int argc, char* argv[])
 	char filename[25];
 
 	strp=strtok(argv[1],"_");
+	printf("%d", strp);
 	if(strp==NULL||strcmp(strp,"cmpt201")!=0)
 	{
 		printf("rename before submitting");
@@ -20,9 +22,22 @@ int main(int argc, char* argv[])
 	}
 
 	strp=strtok(argv[1],".");
-	if(strp==NULL)
+	if(strp==NULL||strchr(strp,"lab")==NULL)
 	{
-		printf("rename before submitting");
+		for(int i=0, length=strlen(strp), num=0; i<length; i++)
+		{
+			int strp[i];
+			if(strp[i]>=48&&strp[i]<=57)
+			{
+				num++;
+			}
+			if(num>2)
+			{
+				printf("rename before submitting");
+				exit(EXIT_FAILURE);
+			}
+		}
+	
 	}
 
 	strp=strtok(NULL, ".");

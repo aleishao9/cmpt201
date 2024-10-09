@@ -17,10 +17,10 @@ int main(void)
 	
 	/*Go through character array and convert each char into it's respective ascii value. 
 	Tally the amount of each character that is present.*/
-	for(int length=strlen(char_array),i=0;i<=length;i++)
+	for(int length=strlen(char_array),i=0;i<length;i++)
 	{
 		char_ascii = (int) char_array[i];
-
+		printf("%d\n", char_ascii);
 		/*control characters*/
 		if(char_ascii<=31||char_ascii==127)
 		{

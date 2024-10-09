@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 
     char* strp=NULL;
     char filename[20];
+    strcpy(filename,argv[1]);
 
     strp=strtok(argv[1],".");
     if(strp==NULL)
@@ -24,8 +25,6 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
-    else
-    {strcpy(filename,argv[1]);}
 
     fh=fopen(filename,"r");
     if(fh==NULL)
