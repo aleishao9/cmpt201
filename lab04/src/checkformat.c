@@ -29,21 +29,25 @@ int main(int argc, char* argv[])
     fh=fopen(filename,"r");
     if(fh==NULL)
     {
-        printf("File not valid\n");
+        printf("file not valid\n");
         exit(EXIT_FAILURE);
     }
     else{
         num=fscanf(fh,"%i", &n);
+        //printf("Amount of following lines: %i\n", n);
     }
-    printf("%i", num);
-    for(int i=0;i<=n;i++)
+
+    for(int i=0;i<n;i++)
     {
         num=fscanf(fh,"%i,%i",&v1,&v2);
+        //printf("Amount of integers in line:%i, Num1:%i, Num2:%i\n", num, v1, v2);
+        
+        if(num!=2)
+        {
+            printf("file format is not valid\n");
+            exit(EXIT_FAILURE);
+        }
     }
-    if(num!=2)
-    {
-        printf("File format is invalid");
-        exit(EXIT_FAILURE);
-    }
+    printf("file valid\n");
     return 0;
 }
