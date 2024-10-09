@@ -8,8 +8,10 @@ int main(int argc, char* argv[])
 	char* strp=NULL;
 	char filename[25];
 
+	int num;
+
 	strp=strtok(argv[1],"_");
-	printf("%d", strp);
+	printf("String: %s\n", strp);
 	if(strp==NULL||strcmp(strp,"cmpt201")!=0)
 	{
 		printf("rename before submitting");
@@ -22,20 +24,21 @@ int main(int argc, char* argv[])
 	}
 
 	strp=strtok(argv[1],".");
+	//look up how to split string in c
 	if(strp==NULL||strchr(strp,"lab")==NULL)
 	{
-		for(int i=0, length=strlen(strp), num=0; i<length; i++)
+		for(int i=0, length=strlen(strp); i<length; i++)
 		{
 			int strp[i];
 			if(strp[i]>=48&&strp[i]<=57)
 			{
 				num++;
 			}
-			if(num>2)
-			{
-				printf("rename before submitting");
-				exit(EXIT_FAILURE);
-			}
+		}
+		if(num>2)
+		{
+			printf("rename before submitting");
+			exit(EXIT_FAILURE);
 		}
 	
 	}
