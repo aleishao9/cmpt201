@@ -7,52 +7,77 @@ int main(int argc, char* argv[])
 {
 	char* strp=NULL;
 	char filename[25];
-
-	int num;
+	char letter;
+	int count=0;
 
 	strp=strtok(argv[1],"_");
-	printf("String: %s\n", strp);
 	if(strp==NULL||strcmp(strp,"cmpt201")!=0)
 	{
 		printf("rename before submitting");
 	}
 
-	strp=strtok(NULL,"_");
-	if(strp==NULL||islower(strp)||strlen(strp)>3||strlen(strp)==1)
+	strp=strtok(NULL,"_");	
+	if(strp!=NULL)
 	{
-		printf("rename before submitting");
-	}
-
-	strp=strtok(argv[1],".");
-	//look up how to split string in c
-	if(strp==NULL||strchr(strp,"lab")==NULL)
-	{
-		for(int i=0, length=strlen(strp); i<length; i++)
+		printf("Length: %ld\n",strlen(strp));
+		if(strlen(strp)<2||strlen(strp)>3)
 		{
-			int strp[i];
-			if(strp[i]>=48&&strp[i]<=57)
-			{
-				num++;
-			}
-		}
-		if(num>2)
-		{
-			printf("rename before submitting");
+			printf("rename before submitting\n");
 			exit(EXIT_FAILURE);
 		}
-	
+	}
+	else{
+		printf("rename before submitting\n");
+		exit(EXIT_FAILURE);
+	}
+
+//Couldn't figure out
+	strp=strtok(NULL,".");
+	printf("String 3: %s\n", strp);
+	if(strp!=NULL)
+	{
+		for(int i=0;i<strlen(strp);i++)
+		{
+			letter=strp[i];
+			printf("letter: %c",letter);
+			if(i==0&&strcmp(letter,"l"))
+			{
+				count++;
+				printf("%i\n",count);
+			}
+			if(i==1&&strp[i]=="a")
+			{
+				count++;
+				printf("%i\n",count);
+			}
+			if(i==2&&strp[i]=="b")
+			{
+				count++;
+				printf("%i\n",count);
+			}
+			printf("%i\n",count);
+		}
+		if(count!=3)
+		{
+			printf("rename before submitting please\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+	else{
+		printf("rename before submitting\n");
+		exit(EXIT_FAILURE);
 	}
 
 	strp=strtok(NULL, ".");
 	if(strp==NULL||strcmp(strp,"tar")!=0)
 	{
-		printf("rename before submitting");
+		printf("rename before submitting\n");
 	}
 
 	strp=strtok(NULL,".");
 	if(strp==NULL||strcmp(strp,"gz")!=0)
 	{
-		printf("rename before submitting");
+		printf("rename before submitting\n");
 	}
 
 	else{
