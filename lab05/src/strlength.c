@@ -4,10 +4,10 @@
 int main(int argc, char* argv[])
 {
 	int str_len=0,length;
-	char word[30];
-	char str_char;
+	char word[30], str_char ;
 	strcpy(word, argv[1]);
-
+	
+	printf("Hi");
 
 	for(int i=0;strcmp(str_char,"/0")!=0;i++)
 	{
