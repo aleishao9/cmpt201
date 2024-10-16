@@ -3,20 +3,18 @@
 
 int main(int argc, char* argv[])
 {
-	int str_len=0,length;
-	char word[30], str_char ;
+	int str_len=0, str_index=0, length=0;
+	char word[30];
 	strcpy(word, argv[1]);
 	
-	printf("Hi");
 
-	for(int i=0;strcmp(str_char,"/0")!=0;i++)
+	while(word[str_index]!= '\0')
 	{
-		str_char=word[i];
-		printf("%c",str_char);
 		str_len++;
+		str_index++;
 	}
-	printf("String length: %d", str_len);
-	length=strlen(argv[1]);
-	printf("Correct string length: %d", length);
+	printf("The length of %s is %d\n", word, str_len);
+
+	return 0;
 }
 
