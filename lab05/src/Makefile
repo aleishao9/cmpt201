@@ -11,6 +11,10 @@ lawn: lawn.o
 
 base2dec: base2dec.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
+
+randomSentence: randomSentence.o
+	$(GCC) $(CFLAGS) -o $@ $^ -lm
+
 %.o: %.c
 	gcc -c $^
 
