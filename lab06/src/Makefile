@@ -3,10 +3,10 @@
 GCC:=gcc
 CFLAGS:=-Wall
 
-strlength: strlength.o
+timeConv: timeConv.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
-lawn: lawn.o
+checkArr: checkArr.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
 base2dec: base2dec.o
@@ -21,10 +21,10 @@ randomSentence: randomSentence.o
 PHONY: clean install Package
 
 clean:
-	rm -f *.o strlength lawn base2dec
+	rm -f *.o timeConv checkArr
 
 install:
-	mv strlength ../bin/
+	mv timeConv ../bin/ && mv checkArr ../bin/
 
 Package:
 	tar -czvf cmpt201_lab06_AOB.tar.gz lab06
