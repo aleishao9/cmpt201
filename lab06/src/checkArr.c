@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main(int argc, int* argv[])
+int main()
 {
-	double* array[]={10,2,15,18,2,3,6}, min, mean, max;
-	int* n;
+	double *array[]={10,2,15,18,2,3,6}, *min, *mean, *max;
+	int *n;
+	int arrLength;
 
 	arrLength=sizeof(array)/sizeof(array[0]);
 	n=&arrLength;
@@ -15,19 +16,17 @@ int main(int argc, int* argv[])
 
 int stats(double* array, int* n, double* min, double* mean, double* max)
 {
-	float average=0.0;
-	int minimum=0, maximum=0;
-	int size=*n;
+	double average=0.0, minimum=0.0, maximum=0.0, size=*n;
 
 	for(int i=0;i<*n;i++)
 	{
 		if(array[i]<minimum)
 		{
-			minimum=array[i]
+			minimum=array[i];
 		}
 		if(array[i]>maximum)
 		{
-			maximum=array[i]
+			maximum=array[i];
 		}
 		average+=array[i];
 	}

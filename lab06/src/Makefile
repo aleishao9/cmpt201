@@ -9,10 +9,7 @@ timeConv: timeConv.o
 checkArr: checkArr.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
-base2dec: base2dec.o
-	$(GCC) $(CFLAGS) -o $@ $^ -lm
-
-randomSentence: randomSentence.o
+loadData: loadData.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
 %.o: %.c
@@ -21,10 +18,10 @@ randomSentence: randomSentence.o
 PHONY: clean install Package
 
 clean:
-	rm -f *.o timeConv checkArr
+	rm -f *.o timeConv checkArr loadData
 
 install:
-	mv timeConv ../bin/ && mv checkArr ../bin/
+	mv timeConv ../bin/ && mv checkArr ../bin/ && mv loadData ../bin/
 
 Package:
 	tar -czvf cmpt201_lab06_AOB.tar.gz lab06
