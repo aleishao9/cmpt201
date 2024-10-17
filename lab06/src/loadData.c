@@ -30,5 +30,6 @@ int loadData(char* filename, int* stationNumber, double* temp, double* pres)
 	fscanf(ftxt,"pressure [kPa] : %lf",&pressure);
 	fscanf(ftxt,"Temperature [C]: %lf",&temperature);
 
+	//make parameter checks
 	return 0;
 }

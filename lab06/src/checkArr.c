@@ -34,6 +34,6 @@ int stats(double* array, int* n, double* min, double* mean, double* max)
 	mean=&average;
 	min=&minimum;
 	max=&maximum;
-
+	//make parameter checks
 	return 0;
 }

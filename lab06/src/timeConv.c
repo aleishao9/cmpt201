@@ -15,22 +15,23 @@ int sec2hms(double* totalSec, int* hr, int* min, int* sec)
 {
 	int hours, mins, secs;
 
-	if(*totalSec > 3600)
+	if(*totalSec > 3600.0)
 	{
-		div_t hr_res = (*totalSec,3600);
+		div_t hr_res = (totalSec,3600.0);
 		hours = hr_res.quot;
 		secs = hr_res.rem;
 	}
-	if(*secs > 60)
+	if(secs > 60)
 	{
-		div_t mins_res = (*secs, 60);
+		div_t mins_res = (secs, 60);
 		mins = mins_res.quot;
-		secs = hr_res.rem;
+		secs = mins_res.rem;
 	}
 
 	hr = &hours;
 	min = &mins;
 	sec = &secs;
 
+	//make character checks
 	return 0;
 }
