@@ -2,34 +2,59 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main()
-{
-	char *filename;
-	int *stationNumber;
-	double *temp, *pres;
-	char file[]="data.dat";
 
-	filename=&file;
-	loadData(filename, stationNumber, temp, pres);
-}
 
 int loadData(char* filename, int* stationNumber, double* temp, double* pres)
 {
 	FILE* ftxt;
-	int stn;
-	double temperature, pressure;
 
-	ftxt=fopen(*filename, "r");
+	ftxt=fopen(filename, "r");
 	if(ftxt==NULL)
 	{
 		printf("File could not be opened.\n");
+		fclose(ftxt);
 		return 1;
 	}
 
-	fscanf(ftxt,"station: %d",&stn);
-	fscanf(ftxt,"pressure [kPa] : %lf",&pressure);
-	fscanf(ftxt,"Temperature [C]: %lf",&temperature);
+	if(fscanf(ftxt,"station: %i", stationNumber)!=1)
+	{
+		printf("Failure to read station number\n");
+		fclose(ftxt);
+		return 1;
+	}
+	if(fscanf(ftxt,"pressure [kPa] : %lf", pres)!=1)
+	{
+		printf("Failure to read pressure\n");
+		fclose(ftxt);
+		return 1;
+	}
+	if(fscanf(ftxt,"Temperature [C]: %lf", temp)!=1)
+	{
+		printf("Failure to read temperature\n");
+		fclose(ftxt);
+		return 1;
+	}
 
-	//make parameter checks
+	fclose(ftxt);
+	return 0;
+}
+
+
+int main()
+{
+	int stationNumber, status;
+	double temp, pres;
+	char filename[]="data.dat";
+
+	status =loadData(filename, &stationNumber, &temp, &pres);
+
+	if(status==1)
+	{
+		printf("File could not be loaded\n");
+		return 1;
+	}
+
+	printf("station: %i\npressure [kPa] : %lf\nTemperature [C]: %lf\n", stationNumber, pres, temp);
+
 	return 0;
 }

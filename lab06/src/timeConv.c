@@ -2,36 +2,43 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main(int argc, int* argv[])
-{
-	double* totalSec;
-       	int* hr, min, sec;
-	
-	sec2hms(totalSec, hr, min, sec);
-
-}
-
 int sec2hms(double* totalSec, int* hr, int* min, int* sec)
 {
-	int hours, mins, secs;
+	int hours=0, mins=0, secs=0;
 
-	if(*totalSec > 3600.0)
+	*hr=0;
+	*min=0;
+	*sec=0;
+	
+	if(*totalSec >= 3600.0)
 	{
-		div_t hr_res = (totalSec,3600.0);
-		hours = hr_res.quot;
-		secs = hr_res.rem;
+		*hr=(int)(*totalSec/3600);
+		*totalSec=fmod(*totalSec, 3600);
 	}
-	if(secs > 60)
+	if(*totalSec >= 60)
 	{
-		div_t mins_res = (secs, 60);
-		mins = mins_res.quot;
-		secs = mins_res.rem;
+		*min=(int)(*totalSec/60);
+		*totalSec=fmod(*totalSec, 60);
 	}
-
-	hr = &hours;
-	min = &mins;
-	sec = &secs;
-
+	*sec=(int)(*totalSec);
 	//make character checks
+	return 0;
+}
+
+
+int main(void)
+{
+	double totalSec;
+    int hr, min, sec;
+
+	printf("Enter total amount of seconds: ");
+	if(scanf("%lf", &totalSec)!= 1)
+	{
+		return 1;
+	}
+
+	sec2hms(&totalSec, &hr, &min, &sec);
+	printf("Converts to: %d hours, %d minutes, and %d seconds\n", hr, min, sec);
+
 	return 0;
 }

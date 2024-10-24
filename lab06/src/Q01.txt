@@ -1,30 +1,33 @@
- Code              | Question               | Answer                     |
--------------------------------------------------------------------------|
-char a = ’Q’;      | What does *ap contain? | *ap will contain the       |
-int b;             | What does b contain ?  | character stored in        |
-char* ap;          |                        | variable a                 |
-ap = a;            |                        |                            |
-b = &a;            |                        | variable b will contain    |
-                   |                        | the address of a           |
--------------------------------------------------------------------------|
-char q[]="goose";  | *r contain [1st]?      | r and s point to the 1st   |
-char *r,*s;        | *s contain [1st]?      | character in the 1D array  |
-r=&q[0];           |                        | q, therefore containing    |
-s=&q;              | *r contain [2nd]?      | the character "g"          |
+ Code              | Question               | Answer                      |
+------------------------------------------------------------------------- |
+char a = ’Q’;      | What does *ap contain? | *ap will contain the        |
+int b;             | What does b contain ?  | character stored in         |
+char* ap;          |                        | variable a                  |
+ap = a;            |                        |                             |
+b = &a;            |                        | variable b will contain     |
+                   |                        | the address of a            |
+------------------------------------------------------------------------- |
+char q[]="goose";  | *r contain [1st]?      | r and s point to the 1st    |
+char *r,*s;        | *s contain [1st]?      | character in the 1D array   |
+r=&q[0];           |                        | q, therefore containing     |
+s=&q;              | *r contain [2nd]?      | the character "g"           |
 r++;               | *s contain [2nd]?      |                             |
 s+=2;              |                        | r will contain the 2nd      |
                    |                        | character in the array "o", |
                    |                        | and s the 3rd character "o" |
--------------------------------------------------------------------------|
-double a = 3.14;   | Difference between     | double *ap initializes a                        |
-double b;          | *ap in "double *ap     | float pointer and b=*ap                           |
-double *ap;        | and "b=*ap"?           | assigns the                            |
-ap = &a;           | What doe the %p        |                            |
-b = *ap;           | represent?             |                            |
-printf("%p\n",ap); |                        |                            |
--------------------------------------------------------------------------|
-#define NUL ’\0’   | What is the difference | Null Terminator            |
-char a = NUL;      | between NUL and NULL?  | vs. Null pointer           |
-char b = NULL;     |                        |                            |
-                   | Purpose of NULL?       |                            |
--------------------------------------------------------------------------|
+------------------------------------------------------------------------- |
+double a = 3.14;   | Difference between     | double *ap initializes a    |
+double b;          | *ap in "double *ap     | float pointer and b=*ap     |
+double *ap;        | and "b=*ap"?           | assigns the                 |
+ap = &a;           | What doe the %p        |                             |
+b = *ap;           | represent?             |                             |
+printf("%p\n",ap); |                        |                             |
+------------------------------------------------------------------------- |
+#define NUL ’\0’   | What is the difference | NUL  = Null charcter '/0'   |
+char a = NUL;      | between NUL and NULL?  | NULL = Null pointer         |
+char b = NULL;     |                        |                             |
+                   | Purpose of NULL?       | Assign absence of address   |
+                   |                        | for char b as strings       |
+                   |                        | are a type of pointer thus  |
+                   |                        | NULL is used instead of NUL |
+------------------------------------------------------------------------- |
