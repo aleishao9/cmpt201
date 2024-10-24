@@ -3,7 +3,6 @@
 #include <math.h>
 
 
-
 int stats(double* array, int* n, double* min, double* mean, double* max)
 {
 	*min=array[0];

@@ -6,7 +6,7 @@ CFLAGS:=-Wall
 timeConv: timeConv.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
-checkArr: checkArr.o
+checkStats: checkStats.o
 	$(GCC) $(CFLAGS) -o $@ $^ -lm
 
 loadData: loadData.o
@@ -18,10 +18,10 @@ loadData: loadData.o
 PHONY: clean install Package
 
 clean:
-	rm -f *.o timeConv checkArr loadData
+	rm -f *.o timeConv checkStats loadData
 
 install:
-	mv timeConv ../bin/ && mv checkArr ../bin/ && mv loadData ../bin/
+	mv timeConv ../bin/ && mv checkStats ../bin/ && mv loadData ../bin/
 
 Package:
 	tar -czvf cmpt201_lab06_AOB.tar.gz lab06
