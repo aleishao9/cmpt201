@@ -31,7 +31,7 @@ void reverso(char* str, int* n)
 
 void str_centre(char* str, int* n)
 {
-	int word_ind=0, word_len=0, total_space=0, left=0;
+	int word_ind=0, word_len=0, total_space=0, middle=0;
 	char word[10]="";
 
 	for(int i=0; i<*n; i++)
@@ -46,10 +46,10 @@ void str_centre(char* str, int* n)
 
 	word_len=strlen(word);
 	total_space= *n-1 - word_len;
-	left=total_space/2;
+	middle=total_space/2;
 
 	memset(str, ' ', *n-1);
 	//str + left offsets starting point for copying by 'left' amount of spaces
-	strncpy(str+left,word,word_len);
+	strncpy(str+middle,word,word_len);
 	str[*n-1]='\0';
 }
