@@ -7,12 +7,12 @@ void poly(double* coef, double* x, double* y, int* nc, int* na)
 {
 	for(int j=0;j<*na;j++)
 	{
+		*y=0;
 		for(int i=0;i<*nc;i++)
 		{
-			*y=+coef[j]*(pow(x[i],j));
-			printf("y = %g, ",*y);
+			*y+=coef[i]*(pow(x[j],i));
 		}
-		printf("\n");
+		printf("y = %g, ",*y);
 	}
 }
 
