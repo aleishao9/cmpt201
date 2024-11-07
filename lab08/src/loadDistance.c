@@ -2,26 +2,20 @@
 #include <stdlib.h>
 #include <math.h>
 
-typedef struct {
-    float x;
-    float y;
-    float z;
-} Point;
-
-typedef struct {
-    int pointA; // Line index of the first point
-    int pointB; // Line index of the second point
-    double d;   // Calculated minimum distance between pointA and pointB
-} dist;
+typedef struct {float x; float y; float z;} Point;
+typedef struct {int pointA; int pointB; double d;} dist;
 
 // Function to calculate the Euclidean distance between two points
-double calculateDistance(Point a, Point b) {
+double calcDistance(Point a, Point b)
+{
     return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2) + pow(a.z - b.z, 2));
 }
 
-int main() {
+int main(void) 
+{
     FILE *file = fopen("data.dat", "r");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         printf("File could not be opened.\n");
         return 1;
     }
@@ -52,10 +46,13 @@ int main() {
     minDist.d = __DBL_MAX__;
 
 
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 1; i++)
+    {
         for (int j = i + 1; j < n; j++) {
-            double distance = calculateDistance(points[i], points[j]);
+            double distance;
+            distance = calcDistance(points[i], points[j]);
             if (distance < minDist.d) {
+                /* updating distance with current smaller distance */
                 minDist.d = distance;
                 /* updating current points with points
                 that have a smaller distance between them */
@@ -66,8 +63,7 @@ int main() {
     }
 
 
-    printf("The minimum distance is %.2f and is between points %d and %d.\n",
-           minDist.d, minDist.pointA, minDist.pointB);
+    printf("The minimum distance is %.2f and is between points %d and %d.\n", minDist.d, minDist.pointA, minDist.pointB);
 
 
     free(points);
